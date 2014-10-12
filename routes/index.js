@@ -35,22 +35,23 @@ router.get('/presentation/:presentationId', function(req, res){
   
   collection.findOne({_id: presentationId}, function(err, presentation) 
     {
-	  if( err || !presentation) console.log("No presentation found !");
+	  if( err || !presentation) {
+	  	console.log("No presentation found !");
+	  	res.status(500).end();
+	  }
 	  else {
 	       
-		 var presentation_details = new Firebase("https://dazzling-fire-6309.firebaseio.com/user/"+presentation.owner+"/presentations/"+presentationId);
-		
-		   var postsQuery = presentation_details.limit(1);
-		   var title;
-			postsQuery.on('child_added', function (snapshot) {
-			  title = snapshot.val();
-			 console.log(title);
-			 res.render('presentation', { presentation: presentation.content , 
-			 presentationId : presentationId, presentationTitle : title});
+		var presentation_details = new Firebase("https://dazzling-fire-6309.firebaseio.com/user/"+presentation.owner+"/presentations/"+presentationId);
+
+		var postsQuery = presentation_details.limit(1);
+		var title;
+		postsQuery.on('child_added', function (snapshot) {
+			title = snapshot.val();
+			console.log(title);
+			res.render('presentation', { presentation: presentation.content , 
+			presentationId : presentationId, presentationTitle : title});
 			});
-		
-		
-	  };
+		};
 	});
 
 });
@@ -85,7 +86,8 @@ router.post('/create_presentation', function(req, res){
 		}, function (err, doc) {
 			if (err) {
 				// erreur
-				res.send("There was a problem adding the information to the database.");
+				console.log("There was a problem adding the information to the database.");
+	  			res.status(500).end();
 			}
 			else {
 				console.log("Presentation added in mongoDB");
