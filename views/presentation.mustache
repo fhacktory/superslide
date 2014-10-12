@@ -5,8 +5,8 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=792, user-scalable=no">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
-	<link rel="stylesheet" href="style/screen.css">
-	<link rel="stylesheet" href="style/interface.css">
+	<link rel="stylesheet" href="/style/screen.css">
+	<link rel="stylesheet" href="/style/interface.css">
 </head>
 <body class="controllerMode">
 	<!--
@@ -21,7 +21,6 @@
 			<li id="btn-chat"><span class="icon-bubble"></span>Chat</li>
 		</ul>
 	</nav>
-	
 	<!-- PRESENTATION START -->
 	<div id="presentation" class="full">
 		{{presentation}}
@@ -29,23 +28,21 @@
 	</div>
 	
 	<!-- END PRESENTATION -->
-	
-	<div id="chatbox" class="chatbox">
+	<div id="chatbox" class="chatbox hidden">
 		<header>
-			<span id="chatboxTitle" class="chatboxTitle">ChatHeader</a>
+			<span id="chatboxTitle" class="chatboxTitle">ChatHeader</span>
 			<span id="closeChat" class="close">×</span>
 		</header>
 		<div id="messageBox" class="messageBox">
 			
 		</div>
 		<input id="messageInput" class="messageInput" type="text">
-		<button class="messageBtn" id="messageBtn"></button>
 	</div>
 	<script src='https://cdn.firebase.com/js/client/1.1.1/firebase.js'></script>
-	<script src="scripts/shower-core/shower.js"></script>
-	<script src="scripts/superslide.js"></script>
-	<script src="scripts/superslide_control.js"></script>
-	<script src="scripts/superslide_chat.js"></script>
+	<script src="/scripts/shower-core/shower.js"></script>
+	<script src="/scripts/superslide.js"></script>
+	<script src="/scripts/superslide_control.js"></script>
+	<script src="/scripts/superslide_chat.js"></script>
 	<script>
 		var presentationId = 1234;//window.location.pathname.substring(window.location.pathname.lastIndexOf("/")+1);
 		superSlideControl.init({
@@ -53,7 +50,18 @@
 			lastSlide: document.getElementsByClassName('slide').length,
 			presentationUrl: superSlide.firebaseUrl + '/presentation/' + presentationId
 		});
+
+		var btnChat = document.getElementById('btn-chat');
+		btnChat.addEventListener('click', function btnChatFirstClick(e) {
+			btnChat.removeEventListener('click', btnChatFirstClick);
+			btnChat.classList.add('active');
+			superSlideChat.init({
+				firebaseUrl: superSlide.firebaseUrl + '/presentation/' + presentationId,
+				username: prompt("Please enter your name")
+			});
+		})
 	</script>
 	<!-- Copyright © 2013 Yours Truly, Famous Inc. -->
 </body>
 </html>
+
