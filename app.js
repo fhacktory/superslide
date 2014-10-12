@@ -85,10 +85,6 @@ app.use(function(err, req, res, next) {
     });
 });
 
-// Forms
-//app.get('/teste', routes.teste);
-//app.post('/user', routes.postUserData);
-
 // Verification
 
 

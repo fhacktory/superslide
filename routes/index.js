@@ -49,7 +49,7 @@ router.get('/presentation/:presentationId', function(req, res){
 
 
 /* POST user token and presentation content. */
-router.post('/user', function(req, res){
+router.post('/create_presentation', function(req, res){
 	var token = req.body.token;
 	var content = req.body.content;
 	var title = req.body.title;
