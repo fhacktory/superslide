@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Create presentation</title>
+    <!-- Bootstrap -->
+    <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/style/login.css" rel="stylesheet">
+    <link href="/style/createPresentation.css" rel="stylesheet">
+    <script src="https://cdn.firebase.com/js/client/1.1.1/firebase.js"></script>
+
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
+    <script language="javascript" type="text/javascript" src="/scripts/superslide.js"></script>
+	<script language="javascript" type="text/javascript">
+	
+		#btnPrevNext{
+			width : 100px;
+			margin : auto;
+		}
+	</script>
+  	<script>
+    	$(document).ready(function(){
+    		$(document).on("click", "#btnCreatePres", function () {
+    			var title = $("#inputTitle").val();
+    			var content = $("#textAreaContent").val();
+    			var firebaseObject = new Firebase(superSlide.firebaseUrl);
+    			var authData = firebaseObject.getAuth();
+    			if (authData) {
+    				console.log('Authenticated user with token:', authData.token);
+    				
+    				var link = "/create_presentation";
+    				$.ajax({ // Ajax query
+    					url : link, // Url for the query
+    					type : 'POST', // Type of query (GET, POST ..)
+    					data : {"title":title, "content" : content, "token" : authData.token}, // Data for the query
+    					success : function(code_html, statut) { // If the query is ok
+    						console.log(code_html + " " +  statut);
+    					},
+    					error : function(resultat, statut, erreur) { // If the query is nok
+    						console.log(resultat + " " + statut + " " + erreur);
+    					}
+    				});	
+    			}
+    		});
+    	});
+  	</script>
+  </head>
+  <body>
+	<div id="btnPrevNext">
+		<img src="../public/images/telecommande_gauche.jpg" alt="left-arrow"/>
+		<img src="../public/images/telecommande_droite.jpg" alt="rigth-arrow"/>
+	</div>
+  </body>
+</html>
