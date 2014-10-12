@@ -9,15 +9,6 @@
     <link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="style/login.css" rel="stylesheet">
 	<script src="https://cdn.firebase.com/js/client/1.1.1/firebase.js"></script>
-	<script>
-	$(document).ready(function(){
-		$(document).on("click", "#createAccount", function () {
-			$("#verifyPassword").show();
-			$("#signIn").hide();
-			$(this).attr("id", "createUser");
-		});
-	});
-	</script>
   </head>
   <body>
   <div id="login">
@@ -57,11 +48,19 @@
 			</div>
 		</form>
 	</div>
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="./bootstrap/js/bootstrap.min.js"></script>
-	
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="./bootstrap/js/bootstrap.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      $(document).on("click", "#createAccount", function () {
+        $("#verifyPassword").show();
+        $("#signIn").hide();
+        $(this).attr("id", "createUser");
+      });
+    });
+  </script>
 	<script language="javascript" type="text/javascript" src="scripts/superslide.js"></script>
 	<script language="javascript" type="text/javascript" src="scripts/superslide_login.js"></script>
 	<script language="javascript" type="text/javascript" src="scripts/login.js"></script>

@@ -11,6 +11,7 @@ var superSlideChat = (function () {
   var messageBtn;
   var messageBox;
   var btnChat;
+  var notification;
 
   function sendMessage() {
     var text = messageInput.value;
@@ -26,6 +27,7 @@ var superSlideChat = (function () {
     messageBox = document.getElementById("messageBox");
     closeChat = document.getElementById("closeChat");
     btnChat = document.getElementById("btn-chat");
+    notification = document.getElementById('notification');
 
     chat = new Firebase(opt.firebaseUrl + '/chat');
     username = opt.username;
@@ -76,15 +78,36 @@ var superSlideChat = (function () {
     });
 
     function displayChatMessage(name, text) {
+      var isQuestion = text.toLowerCase().indexOf('#question') != -1;
       var newMsg = document.createElement('div');
       var newName = document.createElement('strong');
       newName.textContent = name + ": ";
       var newText = document.createTextNode(text);
       newMsg.appendChild(newName);
       newMsg.appendChild(newText);
+      if(isQuestion) {
+        newMsg.classList.add('question');
+        displayNotification();
+      }
       messageBox.appendChild(newMsg);
       messageBox.scrollTop = messageBox.scrollHeight;
     }
+
+    function displayNotification() {
+      notification.classList.remove('hidden');
+      notification.classList.add('ns-show');
+      setTimeout(function () {
+        console.log("bye");
+        notification.classList.add('ns-hide');
+      }, 5000);
+    }
+
+    notification.addEventListener("animationend", function (e) {
+      if(notification.classList.contains('ns-hide'))
+        notification.classList.add('hidden');
+      notification.classList.remove('ns-show');
+      notification.classList.remove('ns-hide');
+    }, false);
 
     setTimeout(function () {
       chatbox.classList.remove('new-msg');

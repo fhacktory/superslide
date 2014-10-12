@@ -182,7 +182,6 @@ var superSlideControl = (function(shower) {
 
   };
 
-
   return superSlideControl;
 
 })(shower);

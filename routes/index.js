@@ -9,7 +9,15 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res) {
-  res.render('presentation', { title: 'Express' });
+  res.render('login', { title: 'Express' });
+});
+
+router.get('/presentation/new', function(req, res) {
+  res.render('create_presentation');
+});
+
+router.get('/presentations', function(req, res) {
+  res.render('list_presentations');
 });
 
 

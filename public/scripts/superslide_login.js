@@ -28,11 +28,12 @@ var superSlideCreateUser = (function () {
 						password : password
 						}, function(error) {
 						if (error === null) {
+							$(location).attr('href',"home.html");
 							console.log("User created successfully");
 						//	alert("User created successfully");
 						} else {
 							console.log("Error creating user:", error);
-						//	alert("Error creating user:", error);
+							alert("Error creating user: ", error);
 						}
 					});
 				}

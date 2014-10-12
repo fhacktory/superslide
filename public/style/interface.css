@@ -1,2 +1,223 @@
-body{background:#222}strong{font-weight:bold}.menu{position:absolute;left:0px}.menu{display:none;z-index:900;width:80px;bottom:0;left:0;top:0;position:fixed;background:#3D444B;box-shadow:1px 1px 2px rgba(0,0,0,0.3);color:#fff;font-size:15px;text-align:center}.menu li{border-bottom:1px solid rgba(0,0,0,0.1);border-top:1px solid rgba(255,255,255,0.05);cursor:pointer}.menu li:hover{background:#454B51}.menu li.active{border-right:3px solid #3498db}.menu a{color:#fff;text-decoration:none}.menu [class^="icon-"],.menu [class*=" icon-"]{display:block;margin:6px 0 0;font-size:25px}.controllerMode .menu{display:block}.live{display:inline-block;position:relative;top:2px;width:12px;height:12px;border:2px solid #fff;background:#999;border-radius:50%;margin-right:5px}.live-on .live{background:#0c0}.live-off .live{background:#c00}.chatbox{position:fixed;z-index:800;bottom:0;right:40px;font-size:13px;width:260px}.chatbox.hidden{display:none}.chatbox.minimized .messageBox,.chatbox.minimized .messageInput,.chatbox.minimized .messageBtn{display:none}.chatbox.new-msg>header{-webkit-animation:NEW-MESSAGE-ANIM 2s infinite;-moz-animation:NEW-MESSAGE-ANIM 2s infinite;-o-animation:NEW-MESSAGE-ANIM 2s infinite;animation:NEW-MESSAGE-ANIM 2s infinite}.chatbox>header{color:#fff;width:250px;padding:0px 5px;background:#3D444B;box-shadow:1px 1px 2px rgba(0,0,0,0.3);border-bottom:1px solid rgba(0,0,0,0.2);border-top:1px solid rgba(255,255,255,0.1)}.chatbox>header .chatboxTitle{cursor:pointer;font-weight:bold}.chatbox>header .close{color:#ccc;position:relative;font-size:22px;line-height:10px;float:right;top:8px;cursor:pointer}.chatbox .messageBox{width:248px;height:250px;padding:0 5px;background:#f7f7f7;background:-moz-linear-gradient(top, #f7f7f7 0%, #fff 100%);background:-webkit-gradient(linear, left top, left bottom, color-stop(0%, #f7f7f7), color-stop(100%, #fff));background:-webkit-linear-gradient(top, #f7f7f7 0%, #fff 100%);background:-o-linear-gradient(top, #f7f7f7 0%, #fff 100%);background:-ms-linear-gradient(top, #f7f7f7 0%, #fff 100%);background:linear-gradient(to bottom, #f7f7f7 0%, #fff 100%);border:1px solid rgba(0,0,0,0.05);border-top:1px solid rgba(255,255,255,0.1);overflow:auto}.chatbox .messageInput{width:238px;border:none;padding:7px 17px 7px 3px;margin:0;border-left:1px solid rgba(0,0,0,0.05);border-right:1px solid rgba(0,0,0,0.05)}.chatbox .messageBtn{position:absolute;right:2px;bottom:2px;width:23px;height:23px}@-moz-keyframes NEW-MESSAGE-ANIM{0%{background:#3F464E}5%{background:#4D545E}100%{background:#3F464E}}
+body {
+  background: #222; }
+
+strong {
+  font-weight: bold; }
+
+.menu {
+  position: absolute;
+  left: 0px; }
+
+.menu {
+  display: none;
+  z-index: 900;
+  width: 80px;
+  bottom: 0;
+  left: 0;
+  top: 0;
+  position: fixed;
+  background: #3D444B;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  color: white;
+  font-size: 15px;
+  text-align: center; }
+  .menu li {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    cursor: pointer; }
+    .menu li:hover {
+      background: #454B51; }
+    .menu li.active {
+      border-right: 3px solid #3498db; }
+  .menu a {
+    color: #fff;
+    text-decoration: none; }
+  .menu [class^="icon-"], .menu [class*=" icon-"] {
+    display: block;
+    margin: 6px 0 0;
+    font-size: 25px; }
+
+.controllerMode .menu {
+  display: block; }
+
+.live {
+  display: inline-block;
+  position: relative;
+  top: 2px;
+  width: 12px;
+  height: 12px;
+  border: 2px solid #fff;
+  background: #999;
+  border-radius: 50%;
+  margin-right: 5px; }
+
+.live-on .live {
+  background: #0c0; }
+
+.live-off .live {
+  background: #c00; }
+
+.chatbox {
+  position: fixed;
+  z-index: 800;
+  bottom: 0;
+  right: 40px;
+  font-size: 13px;
+  width: 260px; }
+  .chatbox.hidden {
+    display: none; }
+  .chatbox.minimized .messageBox, .chatbox.minimized .messageInput, .chatbox.minimized .messageBtn {
+    display: none; }
+  .chatbox.new-msg > header {
+    -webkit-animation: NEW-MESSAGE-ANIM 2s infinite;
+    -moz-animation: NEW-MESSAGE-ANIM 2s infinite;
+    -o-animation: NEW-MESSAGE-ANIM 2s infinite;
+    animation: NEW-MESSAGE-ANIM 2s infinite; }
+  .chatbox > header {
+    color: #fff;
+    width: 250px;
+    padding: 0px 5px;
+    background: #3D444B;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    border-top: 1px solid rgba(255, 255, 255, 0.1); }
+    .chatbox > header .chatboxTitle {
+      cursor: pointer;
+      font-weight: bold; }
+    .chatbox > header .close {
+      color: #ccc;
+      position: relative;
+      font-size: 22px;
+      line-height: 10px;
+      float: right;
+      top: 8px;
+      cursor: pointer; }
+  .chatbox .messageBox {
+    width: 248px;
+    height: 250px;
+    padding: 0 5px;
+    background: #f7f7f7;
+    /* Old browsers */
+    background: -moz-linear-gradient(top, #f7f7f7 0%, #ffffff 100%);
+    /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f7f7f7), color-stop(100%, #ffffff));
+    /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #f7f7f7 0%, #ffffff 100%);
+    /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #f7f7f7 0%, #ffffff 100%);
+    /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #f7f7f7 0%, #ffffff 100%);
+    /* IE10+ */
+    background: linear-gradient(to bottom, #f7f7f7 0%, #ffffff 100%);
+    /* W3C */
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    overflow: auto; }
+    .chatbox .messageBox .question {
+      background: #fff0e0; }
+  .chatbox .messageInput {
+    width: 238px;
+    border: none;
+    padding: 7px 17px 7px 3px;
+    margin: 0;
+    border-left: 1px solid rgba(0, 0, 0, 0.05);
+    border-right: 1px solid rgba(0, 0, 0, 0.05); }
+  .chatbox .messageBtn {
+    position: absolute;
+    right: 2px;
+    bottom: 2px;
+    width: 23px;
+    height: 23px; }
+
+/* Growl-style layout  */
+.ns-growl {
+  top: 5px;
+  right: 5px;
+  max-width: 300px;
+  padding: 10px;
+  border-radius: 5px;
+  position: absolute;
+  font-size: 14px;
+  z-index: 1000; }
+
+.ns-growl p {
+  margin: 0;
+  line-height: 1.3; }
+
+.hidden {
+  display: none; }
+
+/* For hiding the notification, we'll simply reverse the applied animation by default */
+[class^="ns-effect-"].ns-growl.ns-hide,
+[class*=" ns-effect-"].ns-growl.ns-hide {
+  animation-direction: reverse; }
+
+/* Scale effect */
+.ns-effect-scale {
+  background: #3D444B;
+  color: #ddd;
+  box-shadow: 0 25px 10px -15px rgba(0, 0, 0, 0.05); }
+
+.ns-effect-scale.ns-show,
+.ns-effect-scale.ns-hide {
+  animation-name: animScale;
+  animation-duration: 0.4s; }
+
+@-webkit-keyframes animScale {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -40px, 0) scale3d(0.1, 0.6, 1); }
+  100% {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0) scale3d(1, 1, 1); } }
+@-moz-keyframes animScale {
+  0% {
+    opacity: 0;
+    -moz-transform: translate3d(0, -40px, 0) scale3d(0.1, 0.6, 1); }
+  100% {
+    opacity: 1;
+    -moz-transform: translate3d(0, 0, 0) scale3d(1, 1, 1); } }
+@-o-keyframes animScale {
+  0% {
+    opacity: 0;
+    -o-transform: translate3d(0, -40px, 0) scale3d(0.1, 0.6, 1); }
+  100% {
+    opacity: 1;
+    -o-transform: translate3d(0, 0, 0) scale3d(1, 1, 1); } }
+@keyframes animScale {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -40px, 0) scale3d(0.1, 0.6, 1); }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale3d(1, 1, 1); } }
+@-webkit-keyframes NEW-MESSAGE-ANIM {
+  0% {
+    background: #3F464E; }
+  5% {
+    background: #4D545E; }
+  100% {
+    background: #3F464E; } }
+@-moz-keyframes NEW-MESSAGE-ANIM {
+  0% {
+    background: #3F464E; }
+  5% {
+    background: #4D545E; }
+  100% {
+    background: #3F464E; } }
+@-o-keyframes NEW-MESSAGE-ANIM {
+  0% {
+    background: #3F464E; }
+  5% {
+    background: #4D545E; }
+  100% {
+    background: #3F464E; } }
+@keyframes NEW-MESSAGE-ANIM {
+  0% {
+    background: #3F464E; }
+  5% {
+    background: #4D545E; }
+  100% {
+    background: #3F464E; } }
+
 /*# sourceMappingURL=interface.css.map */
