@@ -8,7 +8,7 @@ var bodyParser = require('body-parser');
 // Mongo
 var mongo = require('mongodb');
 var monk = require('monk');
-var db = monk('192.168.3.150:27017/superslide');
+var db = monk('localhost:27017/superslide');
 
 
 
