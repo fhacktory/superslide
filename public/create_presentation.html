@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Create presentation</title>
+    <!-- Bootstrap -->
+    <link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="style/login.css" rel="stylesheet">
+    <link href="style/createPresentation.css" rel="stylesheet">
+	<script src="https://cdn.firebase.com/js/client/1.1.1/firebase.js"></script>
+	
+	
+	
+	    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="./bootstrap/js/bootstrap.min.js"></script>
+	
+	
+	
+	<script>
+	$(document).ready(function(){
+		$(document).on("click", "#btnCreatePres", function () {
+			var title = $("#inputTitle").val();
+			var content = $("#textAreaContent").val();
+			var firebaseObject = new Firebase(superSlide.firebaseUrl);
+			var authData = firebaseObject.getAuth();
+			if (authData) {
+				console.log('Authenticated user with token:', authData.token);
+				
+				var link = "localhost:8081/create_presentation";
+				$.ajax({ // Ajax query
+					url : link, // Url for the query
+					type : 'POST', // Type of query (GET, POST ..)
+					data : {"title":title, "content" : content, "token" : authData.token}, // Data for the query
+					success : function(code_html, statut) { // If the query is ok
+						console.log(code_html + " " +  statut);
+					},
+					error : function(resultat, statut, erreur) { // If the query is nok
+						console.log(resultat + " " + statut + " " + erreur);
+					}
+				});	
+			}
+		});
+	});
+	</script>
+  </head>
+  <body>
+  	<h1 class="center_text">Create your own presentation !</h1>
+  <div id="createPres">
+		<form class="form-horizontal col-md-10" role="form">
+			<div class="form-group">
+				<label for="inputTitle" class="col-sm-2 control-label">Title</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" id="inputTitle" placeholder="Title">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="textAreaContent" class="col-sm-2 control-label">Content</label>
+				<div class="col-sm-10">
+					<textarea id="textAreaContent" class="form-control" rows="20">What you see is what you get !</textarea>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-offset-11">
+					<button id="btnCreatePres" type="button" class="btn btn-default">Create</button>
+				</div>
+			</div>
+		</form>
+	</div>
+
+	
+	<script language="javascript" type="text/javascript" src="scripts/superslide.js"></script>
+  </body>
+</html>

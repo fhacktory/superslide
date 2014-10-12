@@ -1,0 +1,8 @@
+body {
+	background: grey url('../img/noise.png');
+	color: black;
+}
+
+#login {
+	margin-top : 100px;
+}

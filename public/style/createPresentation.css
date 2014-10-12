@@ -1,0 +1,12 @@
+body {
+	background: grey url('../img/noise.png');
+	color: black;
+}
+
+#createPres {
+	margin-top : 50px;
+}
+
+.center_text {
+	text-align : center;
+}
