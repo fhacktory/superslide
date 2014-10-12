@@ -29,8 +29,19 @@ router.get('/presentation/:presentationId', function(req, res){
     {
 	  if( err || !presentation) console.log("No presentation found !");
 	  else {
-		 res.render('presentation', { presentation: presentation.content });
-		 res.render('presentationId', {presentationId : presentationId});
+	       
+		 var presentation_details = new Firebase("https://dazzling-fire-6309.firebaseio.com/user/"+presentation.owner+"/presentations/"+presentationId);
+		
+		   var postsQuery = presentation_details.limit(1);
+		   var title;
+			postsQuery.on('child_added', function (snapshot) {
+			  title = snapshot.val();
+			 console.log(title);
+			 res.render('presentation', { presentation: presentation.content , 
+			 presentationId : presentationId, presentationTitle : title});
+			});
+		
+		
 	  };
 	});
 
@@ -43,7 +54,6 @@ router.post('/user', function(req, res){
 	var content = req.body.content;
 	var title = req.body.title;
 	var ref = new Firebase("https://dazzling-fire-6309.firebaseio.com/");
-	console.log(ref);
 	ref.authWithCustomToken(token, function(err, authData) {
 	if(err)
 	{ 

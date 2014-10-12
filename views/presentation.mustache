@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Ribbon theme for Shower</title>
+	<title>{{presentationTitle}}</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=792, user-scalable=no">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -44,7 +44,7 @@
 	<script src="/scripts/superslide_control.js"></script>
 	<script src="/scripts/superslide_chat.js"></script>
 	<script>
-		var presentationId = {{presentationId}}//1234;//window.location.pathname.substring(window.location.pathname.lastIndexOf("/")+1);
+		var presentationId = {{presentationId}};//1234;//window.location.pathname.substring(window.location.pathname.lastIndexOf("/")+1);
 		superSlideControl.init({
 			slideNum: parseInt(window.location.hash.substr(1),10) || 1,
 			lastSlide: document.getElementsByClassName('slide').length,
