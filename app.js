@@ -8,7 +8,7 @@ var bodyParser = require('body-parser');
 // Mongo
 var mongo = require('mongodb');
 var monk = require('monk');
-var db = monk('localhost:27017/superslide');
+var db = monk('192.168.3.150:27017/superslide');
 
 
 
@@ -37,11 +37,11 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // send files 
-  app.use('/scripts', express.static(__dirname + '/scripts'));
-  app.use('/pictures', express.static(__dirname + '/pictures'));
-  app.use('/images', express.static(__dirname + '/images'));
-  app.use('/fonts', express.static(__dirname + '/fonts'));
-  app.use('/style', express.static(__dirname + '/style'));
+  app.use('/scripts', express.static(__dirname + '/public/scripts'));
+  app.use('/pictures', express.static(__dirname + '/public/pictures'));
+  app.use('/images', express.static(__dirname + '/public/images'));
+  app.use('/fonts', express.static(__dirname + '/public/fonts'));
+  app.use('/style', express.static(__dirname + '/public/style'));
   app.use(express.static(__dirname + '/public'));
   
 // db
