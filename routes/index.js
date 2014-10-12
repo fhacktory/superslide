@@ -29,8 +29,8 @@ router.get('/presentation/:presentationId', function(req, res){
     {
 	  if( err || !presentation) console.log("No presentation found !");
 	  else {
-		  
 		 res.render('presentation', { presentation: presentation.content });
+		 res.render('presentationId', {presentationId : presentationId});
 	  };
 	});
 
