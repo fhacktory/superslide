@@ -16,8 +16,6 @@ var superSlideControl = (function(shower) {
 
   function setLive(state) {
     var auth = presentation.getAuth();
-    if(auth == null && ownerUid === auth.uid)
-      return;
     live = state;
     if(state === false) {
       btnLive.classList.add('live-off');
@@ -31,7 +29,7 @@ var superSlideControl = (function(shower) {
   function changeSlide(newSlideNum) {
     slideNum = newSlideNum;
     var auth = presentation.getAuth();
-    if(auth !== null && ownerUid === auth.uid)
+    if(auth !== null && owner === auth.uid)
       presentation.update({slideNum : slideNum});
     shower.go(slideNum - 1);
   }
@@ -64,7 +62,7 @@ var superSlideControl = (function(shower) {
         slideNumber;
 
       switch (e.which) {
-        /*case 116: // F5 (Shift)
+        case 116: // F5 (Shift)
           e.preventDefault();
           if (shower.isListMode()) {
             slideNumber = e.shiftKey ? slide.number : 0;
@@ -77,9 +75,9 @@ var superSlideControl = (function(shower) {
           } else {
             shower.enterListMode();
           }
-        break;*/
+        break;
 
-        case 13: // Enter
+        /*case 13: // Enter
           if (shower.isListMode() && -1 !== currentSlideNumber) {
             e.preventDefault();
 
@@ -88,7 +86,7 @@ var superSlideControl = (function(shower) {
 
             slide.timing && slide.initTimer(shower);
           }
-        break;
+        break;*/
 
         case 27: // Esc
           if (shower.isSlideMode()) {
@@ -100,8 +98,8 @@ var superSlideControl = (function(shower) {
         case 33: // PgUp
         case 38: // Up
         case 37: // Left
-        //case 72: // H
-        //case 75: // K
+        case 72: // H
+        case 75: // K
           if (e.altKey || e.ctrlKey || e.metaKey) { return; }
           e.preventDefault();
           prevSlide();
@@ -110,8 +108,8 @@ var superSlideControl = (function(shower) {
         case 34: // PgDown
         case 40: // Down
         case 39: // Right
-        //case 76: // L
-        //case 74: // J
+        case 76: // L
+        case 74: // J
           if (e.altKey || e.ctrlKey || e.metaKey) { return; }
           e.preventDefault();
           nextSlide();
@@ -171,17 +169,23 @@ var superSlideControl = (function(shower) {
     lastSlide = opt.lastSlide;
     presentationUrl = opt.presentationUrl;
     presentation = new Firebase(presentationUrl);
-    if(presentation.getAuth() !== null)
+    var auth = presentation.getAuth();
+    if(auth !== null && owner === auth.uid) {
       presentation.update({slideNum : slideNum});
+      btnLive.style.display = "none";
+    }
 
     setLive(true);
     listenKeypress();
     listenMenu();
 
     presentation.on('child_changed', function(snapshot) {
-      liveSlide = snapshot.val();
+      var num = parseInt(snapshot.val(),10);
+      if(isNaN(num))
+        return;
+      liveSlide = num;
       if(live) {
-        slideNum = snapshot.val();
+        slideNum = num;
         changeSlide(slideNum);
       }
     });

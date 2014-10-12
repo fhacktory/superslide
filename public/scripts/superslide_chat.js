@@ -97,7 +97,6 @@ var superSlideChat = (function () {
       notification.classList.remove('hidden');
       notification.classList.add('ns-show');
       setTimeout(function () {
-        console.log("bye");
         notification.classList.add('ns-hide');
       }, 5000);
     }
