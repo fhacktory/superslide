@@ -1,20 +1,44 @@
 var express = require('express');
 var Firebase = require("firebase");
 
-
 var router = express.Router();
 
+
+// Reading html file
 
 
 /* GET home page. */
 router.get('/', function(req, res) {
-  res.render('index', { title: 'Express' });
+  res.render('presentation', { title: 'Express' });
 });
+
 
 router.get('/teste',function(req, res){
   res.render('testePost', { title: 'Token' })
 });
 
+// GET presentation 
+router.get('/presentation/:presentationId', function(req, res){
+
+  var presentationId = req.params.presentationId;
+  var db = req.db;
+  
+  var collection = db.get('presentations');
+  
+  collection.findOne({_id: presentationId}, function(err, presentation) 
+    {
+	  if( err || !presentation) console.log("No presentation found !");
+	  else {
+		  console.log(presentation.content);
+		  
+		 res.render('presentation', { presentation: presentation.content });
+	  };
+	});
+
+});
+
+
+/* POST user token and presentation content. */
 router.post('/user', function(req, res){
 	var token = req.body.token;
 	var content = req.body.content;

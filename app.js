@@ -17,9 +17,16 @@ var users = require('./routes/users');
 
 var app = express();
 
+
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+var mustacheExpress = require('mustache-express');
+
+// Register '.mustache' extension with The Mustache Express
+app.engine('mustache', mustacheExpress());
+
+app.set('view engine', 'mustache');
+app.set('views', __dirname + '/views');
+
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));
@@ -29,6 +36,14 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// send files 
+  app.use('/scripts', express.static(__dirname + '/scripts'));
+  app.use('/pictures', express.static(__dirname + '/pictures'));
+  app.use('/images', express.static(__dirname + '/images'));
+  app.use('/fonts', express.static(__dirname + '/fonts'));
+  app.use('/style', express.static(__dirname + '/style'));
+  app.use(express.static(__dirname + '/public'));
+  
 // db
 app.use(function(req,res,next){
     req.db = db;
@@ -37,6 +52,7 @@ app.use(function(req,res,next){
 app.use('/', routes);
 app.use('/users', users);
 
+//app.register('.html', require('jade'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
