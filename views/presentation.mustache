@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Ribbon theme for Shower</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=792, user-scalable=no">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<link rel="stylesheet" href="style/screen.css">
+	<link rel="stylesheet" href="style/interface.css">
+</head>
+<body class="controllerMode">
+	<!--
+		Debug class on <body> enables
+		cyan grid on slides
+		-->
+	<nav class="menu">
+		<ul>
+			<li id="btn-live" class="live-on"><span class="icon-camera"></span><i class="live"></i>Live</li>
+			<li id="btn-next"><span class="icon-arrow-right"></span>Next</li>
+			<li id="btn-prev"><span class="icon-arrow-left"></span>Previous</li>
+			<li id="btn-chat"><span class="icon-bubble"></span>Chat</li>
+		</ul>
+	</nav>
+	
+	<!-- PRESENTATION START -->
+	<div id="presentation" class="full">
+		{{presentation}}
+		<div class="progress"><div>
+	</div>
+	
+	<!-- END PRESENTATION -->
+	
+	<div id="chatbox" class="chatbox">
+		<header>
+			<span id="chatboxTitle" class="chatboxTitle">ChatHeader</a>
+			<span id="closeChat" class="close">×</span>
+		</header>
+		<div id="messageBox" class="messageBox">
+			
+		</div>
+		<input id="messageInput" class="messageInput" type="text">
+		<button class="messageBtn" id="messageBtn"></button>
+	</div>
+	<script src='https://cdn.firebase.com/js/client/1.1.1/firebase.js'></script>
+	<script src="scripts/shower-core/shower.js"></script>
+	<script src="scripts/superslide.js"></script>
+	<script src="scripts/superslide_control.js"></script>
+	<script src="scripts/superslide_chat.js"></script>
+	<script>
+		var presentationId = 1234;//window.location.pathname.substring(window.location.pathname.lastIndexOf("/")+1);
+		superSlideControl.init({
+			slideNum: parseInt(window.location.hash.substr(1),10) || 1,
+			lastSlide: document.getElementsByClassName('slide').length,
+			presentationUrl: superSlide.firebaseUrl + '/presentation/' + presentationId
+		});
+	</script>
+	<!-- Copyright © 2013 Yours Truly, Famous Inc. -->
+</body>
+</html>
