@@ -52,6 +52,8 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <!-- Include all compiled plugins (below), or include individual files as needed -->
   <script src="./bootstrap/js/bootstrap.min.js"></script>
+  <script language="javascript" type="text/javascript" src="scripts/superslide.js"></script>
+  <script language="javascript" type="text/javascript" src="scripts/superslide_login.js"></script>
   <script>
     $(document).ready(function(){
       $(document).on("click", "#createAccount", function () {
@@ -60,9 +62,8 @@
         $(this).attr("id", "createUser");
       });
     });
+    superSlideLogin.init();
+    superSlideCreateUser.init();
   </script>
-	<script language="javascript" type="text/javascript" src="scripts/superslide.js"></script>
-	<script language="javascript" type="text/javascript" src="scripts/superslide_login.js"></script>
-	<script language="javascript" type="text/javascript" src="scripts/login.js"></script>
   </body>
 </html>
