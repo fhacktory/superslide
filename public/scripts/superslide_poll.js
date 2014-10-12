@@ -94,7 +94,7 @@ var superSlidePoll = (function (id_presentation) {
 			
 			$("poll").each(function( index ) {
 				var id_poll = "poll_" + index;
-				$(this).after('<canvas id="'+id_poll+'_chart" width="200" height="200"></canvas>');
+				$(this).after('<canvas id="'+id_poll+'_chart" width="400" height="400" style="display:block;margin:auto"></canvas>');
 				$('#'+id_poll+'_chart').hide();
 				var question = $(this).children("question").text();
 				counter[id_poll] = { question: question, answers: {} };
@@ -126,4 +126,4 @@ var superSlidePoll = (function (id_presentation) {
 		});
 	};
 	return superSlidePoll;
-})(123456);
+})(presentationId);

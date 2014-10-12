@@ -206,6 +206,38 @@ strong {
     animation-duration: 0.4s;
 }
 
+question {
+  font-size:1.5em;
+  display:block;
+}
+
+answer {
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: 1em;
+  font-weight: normal;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  color: #333;
+  background-color: #fff;
+  border-color: #ccc;
+  clear: both;
+  position: relative;
+  float: left;
+  margin: 10px 0;
+}
+
 @-webkit-keyframes animScale {
     0% { opacity: 0; -webkit-transform: translate3d(0,-40px,0) scale3d(0.1,0.6,1); }
     100% { opacity: 1; -webkit-transform: translate3d(0,0,0) scale3d(1,1,1); }
