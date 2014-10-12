@@ -13,7 +13,8 @@ var superSlideUser = (function () {
         callback(presentation);
       });
     } else {
-      alert('User is not logged in, this should not happen ! (or we should redirect to login)');
+      window.location('/');
+      //alert('User is not logged in, this should not happen ! (or we should redirect to login)');
     }
   }
 

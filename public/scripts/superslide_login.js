@@ -16,7 +16,7 @@ var superSlideCreateUser = (function () {
 						password : password
 						}, function(error) {
 						if (error === null) {
-							$(location).attr('href',"home.html");
+							$(location).attr('href',"/presentations");
 							console.log("User created successfully");
 						} else {
 							console.log("Error creating user:", error);

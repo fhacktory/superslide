@@ -2,7 +2,7 @@ body {
 	background: grey url('../img/noise.png');
 	color: black;
 }
-h1 {
+.logo {
   font-family: 'Wolf in the City';
   font-size:200px;
   line-height: 120px;
