@@ -30,7 +30,7 @@
         <h3>{{title}}</h3>
         <p>{{description}}</p>
         <p>
-           <a href="#" class="btn btn-primary" role="button">
+           <a href="/presentation/\{{id}}" class="btn btn-primary" role="button">
             Open
           </a> 
           <a class="btn btn-default" role="button" data-toggle="modal" data-target="#modalConfirmDeletingItem" href="#">
@@ -74,10 +74,12 @@
   </div>
 
   <script>
+    var template = $('#presentation-item').html();
+    Mustache.parse(template);
     superSlideUser.listenPresentations(function(presentation) {
-      var template = $('#presentation-item').html();
-      Mustache.parse(template);
-      var rendered = Mustache.render(template, {title: presentation.title});
+      var obj = {title: presentation.val().title, id: presentation.name()};
+      console.log(obj);
+      var rendered = Mustache.render(template, obj);
       $('#presentations').append(rendered);
     });
   </script>

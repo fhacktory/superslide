@@ -92,21 +92,22 @@ router.post('/create_presentation', function(req, res){
 			else {
 				console.log("Presentation added in mongoDB");
 				var presentationId = doc._id;
-	            var userPresentations = new Firebase("https://dazzling-fire-6309.firebaseio.com/user/"+userId+"/presentations/"+presentationId);
-				
-				 userPresentations.set({
+				var userPresentations = new Firebase("https://dazzling-fire-6309.firebaseio.com/user/"+userId+"/presentations/"+presentationId);
+
+				userPresentations.set({
 					title : title
-				  });
-				
-				 var presentation  = new Firebase("https://dazzling-fire-6309.firebaseio.com/presentation/"+presentationId);
-				 presentation.set({
-				    slideNum : 1,
+				});
+
+				var presentation  = new Firebase("https://dazzling-fire-6309.firebaseio.com/presentation/"+presentationId);
+				presentation.set({
+					slideNum : 1,
 					owner : userId
-				 });
-				 
-				console.log("Presentation added in Firebase !");				
+				});
+				console.log("Presentation added in Firebase !");
+				res.redirect('/presentations');
 			}
 		});
+
 	}
 	});
 });

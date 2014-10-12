@@ -23,8 +23,9 @@
     			var authData = firebaseObject.getAuth();
     			if (authData) {
     				console.log('Authenticated user with token:', authData.token);
-    				
-    				var link = "/create_presentation";
+            $("#token").val(authData.token);
+    				$("#form").submit();
+    				/*var link = "/create_presentation";
     				$.ajax({ // Ajax query
     					url : link, // Url for the query
     					type : 'POST', // Type of query (GET, POST ..)
@@ -33,9 +34,11 @@
     						console.log(code_html + " " +  statut);
     					},
     					error : function(resultat, statut, erreur) { // If the query is nok
-    						console.log(resultat + " " + statut + " " + erreur);
+    						console.log(resultat);
+                console.log(statut);
+                console.log(erreur);
     					}
-    				});	
+    				});*/
     			}
     		});
     	});
@@ -44,21 +47,22 @@
   <body>
   	<h1 class="center_text">Create your own presentation !</h1>
   <div id="createPres">
-		<form class="form-horizontal col-md-10" role="form">
+		<form class="form-horizontal col-md-10" role="form" id="form" method="post" action="/create_presentation">
 			<div class="form-group">
 				<label for="inputTitle" class="col-sm-2 control-label">Title</label>
 				<div class="col-sm-10">
-					<input type="text" class="form-control" id="inputTitle" placeholder="Title">
+					<input type="text" name="title" class="form-control" id="title" placeholder="Title">
 				</div>
 			</div>
 			<div class="form-group">
 				<label for="textAreaContent" class="col-sm-2 control-label">Content</label>
 				<div class="col-sm-10">
-					<textarea id="textAreaContent" class="form-control" rows="20">What you see is what you get !</textarea>
+					<textarea name="content" id="content" class="form-control" rows="20" placeholder="What you see is what you get !"></textarea>
 				</div>
 			</div>
 			<div class="form-group">
 				<div class="col-sm-offset-11">
+          <input type="hidden" name="token" id="token">
 					<button id="btnCreatePres" type="button" class="btn btn-default">Create</button>
 				</div>
 			</div>

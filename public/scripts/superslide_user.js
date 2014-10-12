@@ -9,7 +9,7 @@ var superSlideUser = (function () {
     if (authData) {
       var userRef = new Firebase(superSlide.firebaseUrl + '/user/' + authData.uid + "/presentations");
       userRef.on('child_added',  function(snapshot) {
-        var presentation = snapshot.val();
+        var presentation = snapshot;
         callback(presentation);
       });
     } else {
