@@ -2,6 +2,15 @@ body {
 	background: grey url('../img/noise.png');
 	color: black;
 }
+h1 {
+  font-family: 'Wolf in the City';
+  font-size:200px;
+  line-height: 120px;
+  text-align: center;
+
+  color: #FFF; /* W3C */
+    text-shadow: -1px 0 4px black;
+}
 
 #login {
 	margin-top : 100px;

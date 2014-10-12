@@ -35,6 +35,16 @@
   src:url(../fonts/PTMono.woff) format('woff');
   }
 
+@font-face {
+  font-family: 'Wolf in the City';
+  src: url('../fonts/wolf_in_the_city-webfont.eot');
+  src: url('../fonts/wolf_in_the_city-webfont.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/wolf_in_the_city-webfont.woff') format('woff'),
+       url('../fonts/wolf_in_the_city-webfont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 //Controller font
 @font-face {
   font-family: 'controller';

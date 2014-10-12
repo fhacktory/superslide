@@ -1,15 +1,3 @@
-	// variable publique
-	//superSlideLogin.count = 5;
-	// variable privée
-	//var count = 3;
-	
-	// methode publique
-	//superSlideLogin.login = function() {
-	//};
-	// methode privée
-	//function login() {
-	//}
-
 var superSlideCreateUser = (function () {
 	var superSlideCreateUser = {};
 	
@@ -30,7 +18,6 @@ var superSlideCreateUser = (function () {
 						if (error === null) {
 							$(location).attr('href',"home.html");
 							console.log("User created successfully");
-						//	alert("User created successfully");
 						} else {
 							console.log("Error creating user:", error);
 							alert("Error creating user: ", error);
@@ -66,21 +53,10 @@ var superSlideLogin = (function () {
 						console.log("User ID: " + authData.uid + ", Provider: " + authData.provider);
 						console.log("authData : " + authData);
 						
-						// Test token ..
-						/*var authData = firebaseObject.getAuth();
-				var firebaseObject = new Firebase(superSlide.firebaseUrl);
-						if (authData) {
-						  console.log('Authenticated user with uid:', authData.uid);
-						  console.log('Authenticated user with token:', authData.token);
-						}*/
-						// Test token
+						$(location).attr('href',"/presentations");
 						
-						$(location).attr('href',"home.html");
-						
-						//alert("User ID: " + authData.uid + ", Provider: " + authData.provider);
 					} else {
 						console.log("Error authenticating user:", error);
-						//alert("Error authenticating user:", error);
 					}
 				});
 			});
