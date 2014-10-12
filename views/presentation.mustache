@@ -44,7 +44,7 @@
 	<script src="/scripts/superslide_control.js"></script>
 	<script src="/scripts/superslide_chat.js"></script>
 	<script>
-		var presentationId = {{presentationId}};//1234;//window.location.pathname.substring(window.location.pathname.lastIndexOf("/")+1);
+		var presentationId = "{{presentationId}}";
 		superSlideControl.init({
 			slideNum: parseInt(window.location.hash.substr(1),10) || 1,
 			lastSlide: document.getElementsByClassName('slide').length,
