@@ -10,6 +10,7 @@ var superSlideControl = (function(shower) {
   var btnNext;
   var btnPrev;
   var btnLive;
+  var owner;
 
   var shower;
 
@@ -26,7 +27,8 @@ var superSlideControl = (function(shower) {
 
   function changeSlide(newSlideNum) {
     slideNum = newSlideNum;
-    if(presentation.getAuth() !== null)
+    var auth = presentation.getAuth();
+    if(auth !== null && ownerUid === auth.uid)
       presentation.update({slideNum : slideNum});
     shower.go(slideNum - 1);
   }
@@ -161,6 +163,7 @@ var superSlideControl = (function(shower) {
     btnPrev = document.getElementById('btn-prev');
     btnLive = document.getElementById('btn-live');
 
+    owner = opt.ownerUid;
     slideNum = opt.slideNum;
     lastSlide = opt.lastSlide;
     presentationUrl = opt.presentationUrl;

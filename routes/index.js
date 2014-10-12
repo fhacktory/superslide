@@ -48,8 +48,11 @@ router.get('/presentation/:presentationId', function(req, res){
 		postsQuery.on('child_added', function (snapshot) {
 			title = snapshot.val();
 			console.log(title);
-			res.render('presentation', { presentation: presentation.content , 
-			presentationId : presentationId, presentationTitle : title});
+			res.render('presentation', {
+				presentation: presentation.content , 
+				presentationId : presentationId,
+				presentationTitle : title,
+				ownerUid: presentation.owner});
 			});
 		};
 	});

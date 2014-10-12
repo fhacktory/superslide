@@ -45,10 +45,12 @@
 	<script src="/scripts/superslide_chat.js"></script>
 	<script>
 		var presentationId = "{{presentationId}}";
+		var ownerUid = "{{ownerUid}}";
 		superSlideControl.init({
 			slideNum: parseInt(window.location.hash.substr(1),10) || 1,
 			lastSlide: document.getElementsByClassName('slide').length,
-			presentationUrl: superSlide.firebaseUrl + '/presentation/' + presentationId
+			presentationUrl: superSlide.firebaseUrl + '/presentation/' + presentationId,
+			ownerUid: ownerUid
 		});
 
 		var btnChat = document.getElementById('btn-chat');
